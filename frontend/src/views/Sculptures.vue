@@ -84,6 +84,9 @@ li:hover {
   width: 80%;
   margin: 0 auto;
 }
+.card-container {
+  margin: auto;
+}
 .card-body h2 {
   font-family: Tangerine;
   font-size: 4em;
