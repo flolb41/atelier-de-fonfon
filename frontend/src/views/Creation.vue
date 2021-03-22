@@ -5,7 +5,7 @@
         <li class="card" v-for="item in creation" :key="item.id">
           <img
             class="card-img-top zoom"
-            :src="`${publicPath}` + item.img"
+            :src="item.img"
             :alt="item.name"
           />
           <div class="card-body">
@@ -39,19 +39,59 @@ export default {
   name: "creation",
   data() {
     return {
-      creation: null,
-      publicPath: process.env.BASE_URL,
+      creation: [
+        {
+          id: 1, 
+          name: "Porte-bijoux",
+          description: "Bois flotté pour bagues et colliers.",
+          price: 25, 
+          img: "../img/creations/1.jpg",
+          vendu: false
+        },
+        {
+          id: 2, 
+          name: "Porte -bijoux",
+          description: "Bois flotté pour bagues et colliers.",
+          price: 35,
+          img: "../img/creations/2.jpg",
+          vendu: false
+        },
+        {
+          id: 3,
+          name: "Poisson",
+          description: "Poisson en bois flotté et inox.",
+          price: 30,
+          img: "../img/creations/3.jpg",
+          vendu: false
+        },
+        {
+          id: 4,
+          name: "Goélands",
+          description: "Peinture sur bois.",
+          price: 50,
+          img: "../img/creations/4.jpg",
+          vendu: false
+        },
+        {
+          id: 5,
+          name: "Oléron liberté",
+          description: "Peinture sur bois flotté.",
+          price: 30,
+          img: "../img/creations/5.jpg",
+          vendu: false
+        },
+        {
+          id: 6,
+          name: "Arête !!! de poisson",
+          description: "Peinture sur bois flotté.",
+          dimensions: "60 cm x 7,5 cm",
+          price: 20,
+          img: "../img/creations/6.jpg",
+          vendu: false
+        },
+      ],
+      
     };
-  },
-  created() {
-    fetch("http://localhost:3000/api/othercreation/")
-      .then((response) => response.json())
-      .then((response) => {
-        this.creation = response;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
 };
 </script>

@@ -5,7 +5,7 @@
         <li class="card" v-for="item in lampes" :key="item.id">
           <img
             class="card-img-top zoom"
-            :src="`${publicPath}` + item.img"
+            :src="item.img"
             :alt="item.name"
           />
           <div class="card-body">
@@ -43,20 +43,62 @@ export default {
   components: {},
   data() {
     return {
-      lampes: null,
-      publicPath: process.env.BASE_URL,
+      lampes: [
+        {
+          id: 1,
+          name: "Lampe en bois flotté",
+          price: 180,
+          Hauteur: "/",
+          Largeur:"/", 
+          Poids:"/",
+          img: "../img/lampes/1.jpg",
+          vendu: true
+        },
+        {
+          id: 2, 
+          name: "Inca / Soleil",
+          description: "Lampe en pierre deux en une, recto/verso",
+          price: 300,
+          Hauteur: "26 cm",
+          Largeur: "17 cm",
+          Poids: "9 kg",
+          img: "../img/lampes/2.jpg",
+          vendu: false
+        },
+        {
+          id: 3,
+          name: "Feuillage / Lézard",
+          description: "Lampe en pierre deux en une, recto/verso",
+          price: 300,
+          Hauteur: "26 cm",
+          Largeur: "17 cm",
+          poids: "9 kg",
+          img: "../img/lampes/3.jpg",
+          vendu: false
+        },
+        {
+          id: 4, 
+          name: "Photophore",
+          price: 30,
+          img: "../img/lampes/4.jpg",
+          vendu: true
+        },
+        {
+          id: 5,
+          name: "Photophore",
+          price: 30,
+          img: "../img/lampes/5.jpg",
+          vendu: true
+        },
+        {
+          id: 6, 
+          name: "Photophore",
+          price: 60,
+          img: "../img/lampes/6.jpg",
+          vendu: true
+        },
+      ],
     };
-  },
-  created() {
-    fetch("http://localhost:3000/api/lampes/")
-      .then((response) => response.json())
-      .then((response) => {
-        this.lampes = response;
-        console.log(this.lampes);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
 };
 </script>

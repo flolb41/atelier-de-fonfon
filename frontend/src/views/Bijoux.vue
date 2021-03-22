@@ -1,11 +1,12 @@
 <template>
   <div class="bijoux container">
+    <p>Revenez vite  !!! Cette page est en construction</p>
     <ul class="bijoux-list">
       <div class="card-container">
         <li class="card" v-for="item in bijoux" :key="item.id">
           <img
             class="card-img-top zoom"
-            :src="`${publicPath}` + item.img"
+            :src="item.img"
             :alt="item.name"
           />
           <div class="card-body">
@@ -40,18 +41,7 @@ export default {
   data() {
     return {
       bijoux: null,
-      publicPath: process.env.BASE_URL,
     };
-  },
-  created() {
-    fetch("http://localhost:3000/api/bijoux/")
-      .then((response) => response.json())
-      .then((response) => {
-        this.bijoux = response;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
 };
 </script>
